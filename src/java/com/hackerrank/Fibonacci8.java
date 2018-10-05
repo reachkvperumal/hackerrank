@@ -3,6 +3,7 @@ package com.hackerrank;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Fibonacci8 {
@@ -26,7 +27,8 @@ public class Fibonacci8 {
                         new BigInteger[]{BigInteger.ONE, BigInteger.ONE}
                         , bigIntegers -> new BigInteger[]{bigIntegers[1], bigIntegers[0].add(bigIntegers[1])}
                 )
-                .limit(input)
-                .forEach(bigIntegers -> System.out.println(bigIntegers[0].intValue()));
+                .mapToInt(value -> value[0].intValue())
+                .limit(input).forEach(System.out::println);
+
     }
 }
